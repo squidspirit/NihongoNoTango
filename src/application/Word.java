@@ -21,18 +21,21 @@ public class Word {
      */
     public Word(char type, String ... args) {
         this.type = type;
-        if (type == Type.KANJI) {
-            this.kanji = args[0];
-            this.hiragana = args[1];
-            this.chuugokugo = args[2];
-        }
-        else if (type == Type.HIRAGANA) {
-            this.hiragana = args[0];
-            this.chuugokugo = args[1];
-        }
-        else if (type == Type.KATAKANA) {
-            this.katakana = args[0];
-            this.chuugokugo = args[1];
+        switch (type) {
+            case Type.KANJI:
+                this.kanji = args[0];
+                this.hiragana = args[1];
+                this.chuugokugo = args[2];
+                break;
+            case Type.HIRAGANA:
+                this.hiragana = args[0];
+                this.chuugokugo = args[1];
+                break;
+            case Type.KATAKANA:
+                this.katakana = args[0];
+                this.chuugokugo = args[1];
+                break;
+            default: break;
         }
     }
 
