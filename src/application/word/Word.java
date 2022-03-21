@@ -1,13 +1,6 @@
-package application;
+package application.word;
 
 public class Word {
-
-    public interface Type {
-        final public static char KANJI = 0;
-        final public static char HIRAGANA = 1;
-        final public static char KATAKANA = 2;
-    }
-
     private String kanji = null;
     private String hiragana = null;
     private String katakana = null;
@@ -37,13 +30,5 @@ public class Word {
                 break;
             default: break;
         }
-    }
-
-    public void printWord() {
-        if (kanji != null) System.out.print(kanji);
-        if (hiragana != null) System.out.print(hiragana);
-        if (katakana != null) System.out.print(katakana);
-        System.out.print(chuugokugo);
-
     }
 }

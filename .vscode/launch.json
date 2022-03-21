@@ -9,7 +9,6 @@
             "name": "Launch Program",
             "request": "launch",
             "mainClass": "application.Main",
-            "args": "-encoding utf-8"
         },
         {
             "type": "java",

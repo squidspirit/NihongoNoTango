@@ -1,9 +1,12 @@
 package application;
 
+import application.frame.Management;
+import application.frame.Title;
+
 public class Main {
     public static void main(String[] args) {
-        new MainFrame();
-        Word word = new Word(Word.Type.HIRAGANA, "わたし", "我");
-        word.printWord();
+        // init frames
+        new Title();
+        new Management();
     }
 }
