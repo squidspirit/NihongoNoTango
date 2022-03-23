@@ -6,6 +6,9 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.nio.charset.StandardCharsets;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -14,6 +17,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import application.word.WordType;
+import application.word.Word;
+import application.word.Words;
 
 public class Title extends JFrame implements ActionListener {
     private JLabel titleLabel = new JLabel();
@@ -24,7 +31,7 @@ public class Title extends JFrame implements ActionListener {
         Font titleFont = new Font("Microsoft JhengHei UI", Font.BOLD, 36);
         Font subtitleFont = new Font("Microsoft JhengHei UI", Font.PLAIN, 24);
 
-        titleLabel.setText("日文單字卡");
+        titleLabel.setText("日本語の単語");
         titleLabel.setFont(titleFont);
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -46,7 +53,7 @@ public class Title extends JFrame implements ActionListener {
         this.setIconImage(icon.getImage());
         this.setTitle("日本語の単語");
         this.setSize(360, 480);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);;
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout(20, 20));
         this.setResizable(false);
@@ -63,12 +70,20 @@ public class Title extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent event) {
-        if (event.getSource() == manageButton) {
-            System.out.println("Haha");
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == manageButton) {
+            setVisible(false);
+            JFrame management = new Management();
+            management.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    setVisible(true);
+                    super.windowClosing(e);
+                }
+            });
         }
-        if (event.getSource() == startButton) {
-            System.out.println("Hehe");
+        if (e.getSource() == startButton) {
+            
         }
     }
 }

@@ -9,12 +9,7 @@
             "name": "Launch Program",
             "request": "launch",
             "mainClass": "application.Main",
-        },
-        {
-            "type": "java",
-            "name": "Launch Current File",
-            "request": "launch",
-            "mainClass": "${file}"
+            "classPaths": ["${workspaceRoot}\\bin"]
         }
     ]
 }
